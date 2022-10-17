@@ -37,9 +37,7 @@ async function draw(el, scale) {
         .append("rect")
         .attr("width", box - 3)
         .attr("height", box - 3)
-        .attr("fill", (d) => {
-          return colorScale(d);
-        })
+        .attr("fill", colorScale)
         .attr("x", (d, i) => {
           console.log((i % 20) * box);
           return (i % 20) * box;
