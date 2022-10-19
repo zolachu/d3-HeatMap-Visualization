@@ -33,7 +33,12 @@ async function draw(el, scale) {
     colorScale = d3
       .scaleQuantile()
       .domain(dataset)
-      .range(["pink", "red", "#c00020"]);
+      .range(["white", "rgb(55,232,226)", "rgb(15,167,162)"]);
+  } else if (scale === "threshold") {
+    colorScale = d3
+      .scaleThreshold()
+      .domain([45200, 135600])
+      .range(["white", "pink", "red"]);
   }
 
   // Rectangles
@@ -66,3 +71,5 @@ draw("#heatmap1", "linear");
 draw("#heatmap2", "quantize");
 
 draw("#heatmap3", "quantile");
+
+draw("#heatmap4", "threshold");
